@@ -60,7 +60,9 @@ jobs:
       run: |
         cd .binder
         apk update
-        apk add build-base python3-dev cargo # Equivalent to build-essential in Debian-based systems
+        apk add build-base python3-dev rustup  # Add rustup for managing Rust toolchains
+        rustup-init -y --default-toolchain nightly  # Switch to nightly Rust
+        rustup default nightly
         python3 -m pip install --upgrade pip
         pip install scikit-image
         pip install -r requirements.txt
