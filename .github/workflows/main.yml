@@ -59,10 +59,12 @@ jobs:
     - name: Install Python dependencies
       run: |
         cd .binder
-        apk update
-        apk add build-base python3-dev rustup  # Add rustup for managing Rust toolchains
+        apt-get update && apt-get install -y build-essential python3-dev rustup
         rustup-init -y --default-toolchain nightly  # Switch to nightly Rust
+        source $HOME/.cargo/env
         rustup default nightly
+        rustup component add clippy rustfmt
+        cargo --version 
         python3 -m pip install --upgrade pip
         pip install scikit-image
         pip install -r requirements.txt
