@@ -59,12 +59,11 @@ jobs:
     - name: Install Python dependencies
       run: |
         cd .binder
-        apt update
-        apt install build-essential
-        apt install python3-dev
+        apk update
+        apk add build-base  # Equivalent to build-essential in Debian-based systems
+        apk add python3-dev
         python3 -m pip install --upgrade pip
         pip install scikit-image
-        #cd lib && pip install -r dev-requirements.txt
         pip install -r requirements.txt
       
     #-  name: Print GITHUB_RUN_RESULT
