@@ -59,8 +59,9 @@ jobs:
     - name: Install Python dependencies
       run: |
         cd .binder
-        apt-get update && apt-get install -y build-essential python3-dev rustup
-        rustup-init -y --default-toolchain nightly  # Switch to nightly Rust
+        cd .binder
+        apt-get update && apt-get install -y build-essential python3-dev curl  # Added curl for rustup
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain nightly
         source $HOME/.cargo/env
         rustup default nightly
         rustup component add clippy rustfmt
