@@ -61,7 +61,7 @@ jobs:
         cd .binder
         python3 -m pip install --upgrade pip
         #cd lib && pip install -r dev-requirements.txt
-        pip install -r integration-requirements.txt
+        pip install -r requirements.txt
       
     #-  name: Print GITHUB_RUN_RESULT
     #   run: echo "GITHUB_RUN_RESULT: ${{ env.GITHUB_RUN_RESULT }}"
