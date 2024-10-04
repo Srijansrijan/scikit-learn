@@ -60,8 +60,7 @@ jobs:
       run: |
         cd .binder
         apk update
-        apk add build-base  # Equivalent to build-essential in Debian-based systems
-        apk add python3-dev
+        apk add build-base python3-dev cargo # Equivalent to build-essential in Debian-based systems
         python3 -m pip install --upgrade pip
         pip install scikit-image
         pip install -r requirements.txt
